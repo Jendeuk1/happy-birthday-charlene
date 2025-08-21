@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday Charlene 🎉</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      background: linear-gradient(135deg, #ffecd2, #fcb69f);
+      font-family: "Poppins", sans-serif;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #4a2c2a;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    img {
+      width: 280px;
+      border-radius: 20px;
+      box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+      animation: floating 4s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+    }
+
+    /* Efek fade in fade out untuk wish */
+    .wish {
+      font-size: 1.2rem;
+      color: #4a2c2a;
+      margin-top: 20px;
+      font-style: italic;
+      animation: fade 4s ease-in-out infinite;
+    }
+
+    @keyframes fade {
+      0% { opacity: 0; }
+      25% { opacity: 1; }
+      75% { opacity: 1; }
+      100% { opacity: 0; }
+    }
+
+    .footer {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.9rem;
+      color: #4a2c2a;
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Happy Birthday 🎂🎉</h1>
+  <p>For Charlene Kimiko Svencia, manusia setengah matcha 🍵💚</p>
+  <img src="matcha.png" alt="Charlene" />
+
+  <!-- Wish baru -->
+  <div class="wish">May your day be filled with laughter, love, and the comfort of your favorite matcha and hope that we’ll meet again soon 🌸💚🍵</div>
+
+  <div class="footer">FROM MONSTER 💌</div>
+
+  <!-- Musik latar -->
+  <audio autoplay loop>
+    <source src="videoplayback.m4a" type="audio/mp4">
+    Browser Anda tidak mendukung audio.
+  </audio>
+
+  <script>
+    // Bypass autoplay restriction
+    document.addEventListener("click", () => {
+      const audio = document.querySelector("audio");
+      if (audio.paused) {
+        audio.play();
+      }
+    });
+  </script>
+</body>
+</html>
