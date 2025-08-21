@@ -16,19 +16,22 @@
       background: linear-gradient(135deg, #ffecd2, #fcb69f);
       font-family: "Poppins", sans-serif;
       text-align: center;
-      overflow: hidden;
+      /* ❌ hapus overflow hidden supaya balon tidak ketutup */
+      overflow-x: hidden;
     }
 
     h1 {
       font-size: 2.5rem;
       color: #4a2c2a;
       margin-bottom: 10px;
+      z-index: 3;
     }
 
     p {
       font-size: 1.2rem;
       color: #333;
       margin-bottom: 20px;
+      z-index: 3;
     }
 
     img {
@@ -36,7 +39,8 @@
       border-radius: 20px;
       box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
       animation: floating 4s ease-in-out infinite;
-      z-index: 2;
+      z-index: 3;
+      position: relative;
     }
 
     @keyframes floating {
@@ -49,6 +53,7 @@
       bottom: 20px;
       font-size: 0.9rem;
       color: #4a2c2a;
+      z-index: 3;
     }
 
     audio {
@@ -57,14 +62,15 @@
 
     /* Balon */
     .balloon {
-      position: absolute;
-      bottom: -150px;
+      position: fixed; /* ✅ supaya bisa naik bebas */
+      bottom: -100px;
       width: 60px;
       height: 80px;
       background: #ff6b6b;
       border-radius: 50%;
-      animation: rise 10s linear infinite;
-      opacity: 0.8;
+      animation: rise linear forwards;
+      opacity: 0.9;
+      z-index: 1; /* biar di belakang gambar & teks */
     }
     .balloon:before {
       content: "";
@@ -78,8 +84,8 @@
     }
 
     @keyframes rise {
-      0% { transform: translateY(0) scale(1); opacity: 0.9; }
-      100% { transform: translateY(-120vh) scale(1.1); opacity: 0; }
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-120vh); opacity: 0; }
     }
   </style>
 </head>
@@ -130,7 +136,7 @@
       }, 12000);
     }
 
-    setInterval(createBalloon, 2000);
+    setInterval(createBalloon, 1500);
   </script>
 </body>
 </html>
